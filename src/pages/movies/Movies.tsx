@@ -29,9 +29,7 @@ const Movies = () => {
     <div className="bg-[#0f172b] text-white min-h-screen py-6">
       
       <div className="px-4 mb-6">
-        <h2 className="text-2xl font-semibold mb-4 border-l-4 border-red-700 pl-3">
-          Genres
-        </h2>
+       
         <Genre data={genreData?.genres} />
       </div>
 
