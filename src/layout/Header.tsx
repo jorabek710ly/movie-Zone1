@@ -15,14 +15,14 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
 
-  // Scroll detection
+  
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Theme toggle
+  
   const toggleTheme = () => setIsDark((prev) => !prev);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const Header = () => {
     }
   }, [isDark]);
 
-  // NavLink common style
+  
   const navLinkStyle = ({ isActive }: { isActive: boolean }) =>
     `flex items-center gap-1 px-2 py-1 text-sm transition-colors duration-200 ${
       isActive
@@ -43,14 +43,14 @@ const Header = () => {
 
   return (
     <>
-      {/* Sticky Header */}
+      
       <header
         className={`fixed top-0 left-0 w-full z-50 bg-[#1a1b2e] border-b border-gray-700 transition-all duration-300 ${
           isScrolled ? "py-2" : "py-4"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-          {/* Logo */}
+          
           <div
             onClick={() => navigate("/")}
             className="flex items-center gap-2 cursor-pointer"
@@ -59,7 +59,7 @@ const Header = () => {
             <span className="text-sm text-gray-200">MovieZone</span>
           </div>
 
-          {/* NavLinks */}
+          
           <nav className="flex items-center gap-3 sm:gap-5">
             <NavLink to="/" className={navLinkStyle}>
               <HomeOutlined />
@@ -79,7 +79,7 @@ const Header = () => {
             </NavLink>
           </nav>
 
-          {/* Dark Mode Toggle */}
+          
           <button
             onClick={toggleTheme}
             className="text-lg text-gray-400 hover:text-white transition"
@@ -89,7 +89,7 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Push-down spacer so content doesn't hide behind sticky header */}
+      
       <div className={`${isScrolled ? "h-[48px]" : "h-[64px]"} transition-all duration-300`}></div>
     </>
   );

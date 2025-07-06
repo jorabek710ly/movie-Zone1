@@ -1,8 +1,8 @@
 
-
+import NotFound from '../noteFound/NotFound';
 const Saverd = () => {
   return (
-    <div>Saverd</div>
+    <NotFound/>
   )
 }
 

@@ -2,13 +2,26 @@ import { IMAGE_URL } from "@/const";
 import type { IMovie } from "@/types";
 import React, { type FC } from "react";
 import { useNavigate } from "react-router-dom";
+import SkeletonMovieCard from "../skleton/Skleton";
 
 interface Props {
   data: IMovie[] | undefined;
+  loading: boolean;
+  count?: number;
 }
 
-const MovieView: FC<Props> = ({ data }) => {
+const MovieView: FC<Props> = ({ data, loading, count = 8 }) => {
   const navigate = useNavigate();
+
+  if (loading) {
+    return (
+      <div className="container mx-auto grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-6 p-2">
+        {Array.from({ length: count }).map((_, i) => (
+          <SkeletonMovieCard key={i} />
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-6 p-2">

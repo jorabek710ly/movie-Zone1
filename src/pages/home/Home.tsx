@@ -4,13 +4,16 @@ import MovieView from '@/components/movie-view/MovieView'
 import SwiperItem from '@/components/SwiperItem/SwiperItem'
 
 const Home = () => {
-  const {getMovies} = useMovie()
-  const {data} = getMovies({page: 1, without_genres: "18,36,27,10749"})
+  const { getMovies } = useMovie()
+  const { data, isLoading } = getMovies({ page: 1, without_genres: "18,36,27,10749" })
+
   return (
     <div>
-      {/* <Carousel/> */}
-      <SwiperItem/>
-      <MovieView data={data?.results?.slice(0, 8)}/>
+      <SwiperItem />
+      <MovieView 
+        data={data?.results?.slice(0, 8)} 
+        loading={isLoading} 
+      />
     </div>
   )
 }
