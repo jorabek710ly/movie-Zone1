@@ -1,4 +1,4 @@
-// components/skeleton/SkeletonSwiper.tsx
+
 import React from "react";
 
 const SkeletonSwiper = () => {

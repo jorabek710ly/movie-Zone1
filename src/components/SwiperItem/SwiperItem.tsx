@@ -12,7 +12,7 @@ const SwiperItem = () => {
   const { data, isLoading } = getMovies({ page: 1, without_genres: "18,36,27,10749" });
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
-  // ✅ Show loading skeleton if still loading
+  
   if (isLoading) return <SkeletonSwiper />;
 
   return (
