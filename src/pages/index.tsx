@@ -5,7 +5,9 @@ const Layout = lazy(() => import("./layout/Layout"));
 const Home = lazy(() => import("./home/Home"));
 const Movies = lazy(() => import("./movies/Movies"));
 const MovieDetail = lazy(() => import("./movies/MovieDetail"));
-const CastsDetile = lazy(() => import("./movies/CastsDetile"));
+const CastsDetail = lazy(() => import("./movies/CastsDetile"));
+const NotFound = lazy(() => import("./noteFound/NotFound")); 
+
 const MainRouter = () => {
   return useRoutes([
     {
@@ -24,9 +26,22 @@ const MainRouter = () => {
           path: "/movie/:id",
           element: <MovieDetail />,
         },
-          {
+        {
           path: "/casts/:id",
-          element: <CastsDetile />,
+          element: <CastsDetail />,
+        },
+      
+        {
+          path: "/saved",
+          element: <NotFound />,
+        },
+        {
+          path: "/search",
+          element: <NotFound />,
+        },
+        {
+          path: "*",
+          element: <NotFound />,
         },
       ],
     },
@@ -34,3 +49,4 @@ const MainRouter = () => {
 };
 
 export default MainRouter;
+

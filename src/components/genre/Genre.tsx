@@ -19,8 +19,10 @@ const Genre: FC<Props> = ({ data }) => {
   };
 
   return (
-    <div className="container mx-auto px-2">
-      <div className="flex overflow-auto gap-3 py-2 px-1">
+    <div className="max-w-7xl mx-auto px-4 py-5">
+      <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-3">Genres</h2>
+      
+      <div className="flex gap-3 overflow-x-auto no-scrollbar scroll-snap-x px-1 py-2">
         {data?.map((item: IGenre) => {
           const isActive = item.id.toString() === genre;
 
@@ -28,11 +30,11 @@ const Genre: FC<Props> = ({ data }) => {
             <div
               key={item.id}
               onClick={() => handleGenre(item.id)}
-              className={`cursor-pointer text-sm whitespace-nowrap px-4 py-1.5 rounded-full border transition-colors duration-200 shadow-sm select-none
+              className={`flex-shrink-0 scroll-snap-start cursor-pointer text-center text-sm font-medium px-4 py-2 rounded-full border transition-all duration-200 select-none
                 ${
                   isActive
-                    ? "bg-black text-white border-black"
-                    : "bg-white text-black border-gray-300 hover:bg-gray-100"
+                    ? "bg-gradient-to-r from-red-600 to-red-700 text-white border-red-700 shadow-md"
+                    : "bg-gray-100 dark:bg-[#1e293b] text-gray-800 dark:text-gray-200 border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-[#334155]"
                 }
               `}
             >
@@ -46,5 +48,7 @@ const Genre: FC<Props> = ({ data }) => {
 };
 
 export default React.memo(Genre);
+
+
 
 

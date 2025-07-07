@@ -8,3 +8,36 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+html {
+  background-color: white;
+  color: #1a1a1a;
+}
+html.dark {
+  background-color: #0f172b;
+  color: white;
+}
+
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+.scroll-snap-x {
+  scroll-snap-type: x mandatory;
+}
+.scroll-snap-start {
+  scroll-snap-align: start;
+}
+
+
+
+
+
+

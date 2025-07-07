@@ -5,7 +5,7 @@ import SwiperItem from '@/components/SwiperItem/SwiperItem'
 
 const Home = () => {
   const { getMovies } = useMovie()
-  const { data, isLoading } = getMovies({ page: 1, without_genres: "18,36,27,10749" })
+  const { data, isLoading } = getMovies({ page: 1 }) 
 
   return (
     <div>
@@ -19,3 +19,4 @@ const Home = () => {
 }
 
 export default React.memo(Home)
+

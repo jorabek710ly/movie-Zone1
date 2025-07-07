@@ -1,9 +1,9 @@
 
-import NotFound from '../noteFound/NotFound';
-const Saverd = () => {
-  return (
-    <NotFound/>
-  )
-}
+import React from "react";
+import NotFound from "../noteFound/NotFound";
 
-export default Saverd
+const Saved = () => {
+  return <NotFound />;
+};
+
+export default React.memo(Saved);

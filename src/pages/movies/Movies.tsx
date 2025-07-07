@@ -35,7 +35,7 @@ const Movies = () => {
         <MovieView data={data?.results} loading={isLoading} />
       </div>
 
-      <div className="bg-gray-200 dark:bg-black py-6 px-4 rounded-t-lg shadow-inner">
+      <div className="bg-gray-100 dark:bg-[#0f172b] py-6 px-4 rounded-t-xl border-t border-gray-300 dark:border-gray-700 shadow-sm">
         <Pagination
           current={page}
           onChange={handlePagination}
@@ -45,7 +45,7 @@ const Movies = () => {
               ? data.total_results
               : 10000
           }
-          className="flex justify-center"
+          className="flex justify-center gap-1"
           showSizeChanger={false}
         />
       </div>
@@ -54,5 +54,3 @@ const Movies = () => {
 };
 
 export default React.memo(Movies);
-
-

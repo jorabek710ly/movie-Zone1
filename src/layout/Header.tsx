@@ -15,14 +15,14 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
 
-  
+  // Scroll shrink effect
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  
+  // Toggle dark/light mode
   const toggleTheme = () => setIsDark((prev) => !prev);
 
   useEffect(() => {
@@ -33,33 +33,32 @@ const Header = () => {
     }
   }, [isDark]);
 
-  
+  // Active nav link styles
   const navLinkStyle = ({ isActive }: { isActive: boolean }) =>
     `flex items-center gap-1 px-2 py-1 text-sm transition-colors duration-200 ${
       isActive
         ? "text-red-700 border-b border-red-700"
-        : "text-gray-300 hover:text-white"
+        : "text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
     }`;
 
   return (
     <>
-      
       <header
-        className={`fixed top-0 left-0 w-full z-50 bg-[#1a1b2e] border-b border-gray-700 transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           isScrolled ? "py-2" : "py-4"
-        }`}
+        } bg-white dark:bg-[#1a1b2e] border-b border-gray-200 dark:border-gray-700`}
       >
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-          
+          {/* Logo */}
           <div
             onClick={() => navigate("/")}
             className="flex items-center gap-2 cursor-pointer"
           >
             <img src={EMBLEM} alt="Logo" className="h-6 w-auto" />
-            <span className="text-sm text-gray-200">MovieZone</span>
+            <span className="text-sm text-gray-800 dark:text-gray-200">MovieZone</span>
           </div>
 
-          
+          {/* Navigation */}
           <nav className="flex items-center gap-3 sm:gap-5">
             <NavLink to="/" className={navLinkStyle}>
               <HomeOutlined />
@@ -79,20 +78,25 @@ const Header = () => {
             </NavLink>
           </nav>
 
-          
+          {/* Theme toggle */}
           <button
             onClick={toggleTheme}
-            className="text-lg text-gray-400 hover:text-white transition"
+            className="text-lg text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition"
           >
             {isDark ? <SunOutlined /> : <MoonOutlined />}
           </button>
         </div>
       </header>
 
-      
-      <div className={`${isScrolled ? "h-[48px]" : "h-[64px]"} transition-all duration-300`}></div>
+      {/* Push content down to avoid overlap */}
+      <div
+        className={`${
+          isScrolled ? "h-[48px]" : "h-[64px]"
+        } transition-all duration-300`}
+      ></div>
     </>
   );
 };
 
 export default Header;
+

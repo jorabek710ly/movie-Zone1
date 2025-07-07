@@ -13,7 +13,7 @@ const SkeletonMovieCard: FC<Props> = ({ count }) => {
           className="animate-pulse bg-white dark:bg-slate-900 rounded-xl shadow-sm overflow-hidden"
         >
           
-          <div className="w-full h-64 bg-gray-200 dark:bg-slate-700" />
+          <div className="w-full h-105 bg-gray-200 dark:bg-slate-700" />
 
          
           <div className="p-3 space-y-3">
