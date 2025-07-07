@@ -31,7 +31,7 @@ const MovieDetail = () => {
 
   return (
     <div className="bg-white text-black dark:bg-[#0f172b] dark:text-white min-h-screen transition-colors duration-300">
-      {/* Hero Section */}
+      
       <div className="relative w-full h-[600px] overflow-hidden">
         <img
           src={IMAGE_URL + data?.backdrop_path}
@@ -52,7 +52,7 @@ const MovieDetail = () => {
       </div>
 
       <div className="container mx-auto px-4 py-6">
-        {/* Backdrops */}
+        
         <div className="mb-10">
           <h2 className="text-2xl font-semibold mb-4 border-l-4 border-red-700 pl-3">
             Backdrops
@@ -75,7 +75,7 @@ const MovieDetail = () => {
           </div>
         </div>
 
-        {/* Top Cast */}
+        
         <div className="mb-10">
           <h2 className="text-2xl font-semibold mb-4 border-l-4 border-red-700 pl-3">
             Top Cast
@@ -106,7 +106,7 @@ const MovieDetail = () => {
           </div>
         </div>
 
-        {/* Similar Movies */}
+        
         <div>
           <h2 className="text-2xl font-semibold mb-4 border-l-4 border-red-700 pl-3">
             Similar Movies
