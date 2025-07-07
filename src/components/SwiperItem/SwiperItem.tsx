@@ -5,11 +5,15 @@ import { useMovie } from "@/api/hooks/useMovie";
 import type { IMovie } from "@/types";
 import { IMAGE_URL } from "@/const";
 import { PlayCircleOutlined } from "@ant-design/icons";
+import SkeletonSwiper from "../swiper-skleton/SwiperSkleton"; 
 
 const SwiperItem = () => {
   const { getMovies } = useMovie();
-  const { data } = getMovies({ page: 1, without_genres: "18,36,27,10749" });
+  const { data, isLoading } = getMovies({ page: 1, without_genres: "18,36,27,10749" });
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+
+  // ✅ Show loading skeleton if still loading
+  if (isLoading) return <SkeletonSwiper />;
 
   return (
     <div className="max-w-[1300px] mx-auto px-4 py-6">
@@ -56,7 +60,7 @@ const SwiperItem = () => {
         freeMode
         watchSlidesProgress
         modules={[FreeMode, Navigation, Thumbs]}
-        className="thumb-swiper"
+        className="thumb-swiper mt-3"
       >
         {data?.results?.map((movie: IMovie) => (
           <SwiperSlide key={movie.id}>
@@ -64,7 +68,7 @@ const SwiperItem = () => {
               <img
                 src={IMAGE_URL + movie.backdrop_path}
                 alt={movie.title}
-                className="thumb-image"
+                className="thumb-image rounded object-cover h-[80px] w-full"
               />
             </div>
           </SwiperSlide>
@@ -75,3 +79,4 @@ const SwiperItem = () => {
 };
 
 export default React.memo(SwiperItem);
+
